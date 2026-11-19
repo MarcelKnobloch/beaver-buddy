@@ -12,11 +12,10 @@ Type code and he chews a tree, hauls logs and builds a dam. A pond rises behind 
 
 ##### From a vsix file
 
-1. Download `beaver-dam-<version>.vsix` from the [latest release](https://github.com/YOUR-GITHUB-USER/beaver-dam/releases/latest).
-2. In VS Code, go to the Extensions view, click the `...` menu in the top right and choose **Install from VSIX...**, then pick the file.
-   Or from a terminal: `code --install-extension beaver-dam-<version>.vsix` (use `positron` instead of `code` for Positron).
-3. ctrl shift p -> install from vsix
-4. Run **Developer: Reload Window**.
+1. Download `beaver-dam-<version>.vsix` from the [latest release]().
+2. **Option 1 – Using the Command Palette:** Press  **Ctrl + Shift + P** , search for  **Extensions: Install from VSIX...** , and select it. Then choose the downloaded `<span>.vsix</span>` file.
+3. **Option 2 – Using the Extensions view:** Open the Extensions view, click the `<span>...</span>` menu in the top right, choose  **Install from VSIX...** , and select the file.
+4. Run **Developer: Reload Window** from the Command Palette to activate the extension.
 
 ##### From source
 

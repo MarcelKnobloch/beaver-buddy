@@ -1,3 +1,5 @@
 node_modules/
 *.vsix
 .DS_Store
+PUBLISHING.md
+icon.png

@@ -25,7 +25,7 @@ extension in **VS Code** and in **Positron**:
 - [ ] hello on start, typing and backspace build the dam, the **World** tab and **Open map in editor** work
 - [ ] day / night button and `beaverDam.timeOfDay`
 - [ ] run a Python script, an R script and a notebook cell: cheer on success, "oops" on an error
-      (check **Beaver: Show run detection log** if not; the Positron hooks are the least tested part)
+  (check **Beaver: Show run detection log** if not; the Positron hooks are the least tested part)
 - [ ] hover for a heart, rest on the dam, finish a whole dam (`logsPerDam` = 10) and watch the tree topple
 - [ ] reload the window and check that progress survives
 
@@ -51,9 +51,9 @@ Pushes and pull requests run the CI workflow (`.github/workflows/ci.yml`).
 
 ## 3. Visual Studio Marketplace (VS Code)
 
-1. Create a publisher at <https://marketplace.visualstudio.com/manage> (sign in with a Microsoft account).
+1. Create a publisher at [https://marketplace.visualstudio.com/manage](https://marketplace.visualstudio.com/manage) (sign in with a Microsoft account).
    The publisher id goes into `package.json`.
-2. Create a Personal Access Token at <https://dev.azure.com>: *User settings, Personal access tokens, New token*,
+2. Create a Personal Access Token at [https://dev.azure.com](https://dev.azure.com): *User settings, Personal access tokens, New token*,
    organization **All accessible organizations**, scope **Marketplace, Manage**.
 3. Publish:
 
@@ -69,7 +69,7 @@ Pushes and pull requests run the CI workflow (`.github/workflows/ci.yml`).
 
 Positron installs extensions from Open VSX, not from the Visual Studio Marketplace, so publish there too.
 
-1. Sign in at <https://open-vsx.org> with GitHub and sign the Publisher Agreement (Eclipse Foundation account needed).
+1. Sign in at [https://open-vsx.org](https://open-vsx.org) with GitHub and sign the Publisher Agreement (Eclipse Foundation account needed).
 2. Create an access token in your profile settings.
 3. Create the namespace once, then publish:
 
