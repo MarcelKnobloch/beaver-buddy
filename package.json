@@ -3,7 +3,7 @@
   "displayName": "Beaver Buddy",
   "description": "A little beaver lives in your sidebar. The more you code, the bigger his dam gets. For VS Code and Positron.",
   "version": "0.9.0",
-  "publisher": "Marcel Knobloch",
+  "publisher": "MarcelKnobloch",
   "license": "MIT",
   "icon": "images/icon.png",
   "galleryBanner": {
