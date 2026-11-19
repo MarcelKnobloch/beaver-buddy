@@ -1,0 +1,181 @@
+{
+  "name": "beaver-buddy",
+  "displayName": "Beaver Buddy",
+  "description": "A little beaver lives in your sidebar. The more you code, the bigger his dam gets. For VS Code and Positron.",
+  "version": "0.9.0",
+  "publisher": "Marcel Knobloch",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#2f6b3f",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcelKnobloch/beaver-buddy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MarcelKnobloch/beaver-buddy/issues"
+  },
+  "homepage": "https://github.com/MarcelKnobloch/beaver-buddy#readme",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Visualization",
+    "Data Science",
+    "Other"
+  ],
+  "keywords": [
+    "beaver",
+    "mascot",
+    "pet",
+    "companion",
+    "gamification",
+    "motivation",
+    "positron",
+    "python",
+    "r",
+    "fun",
+    "productivity",
+    "sidebar",
+    "vscode"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "beaverDam.view",
+          "name": "Beaver Buddy"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "beaverDam.sayHello",
+        "title": "Beaver: Say hello"
+      },
+      {
+        "command": "beaverDam.sayBye",
+        "title": "Beaver: Say bye"
+      },
+      {
+        "command": "beaverDam.openMap",
+        "title": "Beaver: Open world map"
+      },
+      {
+        "command": "beaverDam.yay",
+        "title": "Beaver: Celebrate (yay)"
+      },
+      {
+        "command": "beaverDam.visit",
+        "title": "Beaver: Invite visitors (birds, otter)"
+      },
+      {
+        "command": "beaverDam.rest",
+        "title": "Beaver: Rest on the dam"
+      },
+      {
+        "command": "beaverDam.showLog",
+        "title": "Beaver: Show run detection log"
+      },
+      {
+        "command": "beaverDam.toggleDayNight",
+        "title": "Beaver: Switch day / night"
+      },
+      {
+        "command": "beaverDam.reset",
+        "title": "Beaver: Reset progress"
+      }
+    ],
+    "configuration": {
+      "title": "Beaver Dam",
+      "properties": {
+        "beaverDam.charsPerLog": {
+          "type": "number",
+          "default": 30,
+          "minimum": 5,
+          "description": "How many typed characters it takes the beaver to gather one log."
+        },
+        "beaverDam.logsPerDam": {
+          "type": "number",
+          "default": 80,
+          "minimum": 10,
+          "description": "How many logs it takes to finish one dam. The camera zooms out automatically as the dam grows."
+        },
+        "beaverDam.idleWorkPercent": {
+          "type": "number",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "How fast the beaver works while you are not typing, as a percentage of a typical coding pace (only while the window is focused). 3 is about one log every 5 minutes. 0 turns idle work off."
+        },
+        "beaverDam.timeOfDay": {
+          "type": "string",
+          "enum": [
+            "real",
+            "fast",
+            "day",
+            "night"
+          ],
+          "default": "real",
+          "description": "Day and night in the beaver's world: follow your local clock (real), run a full day in 8 minutes (fast), or stay at day or night."
+        },
+        "beaverDam.runPattern": {
+          "type": "string",
+          "default": "(^|[\\s;&|(/\\\\])(python[\\d.]*\\s+(-m\\s+(?!pip\\b|venv\\b)\\S+|-c\\s+|\\S+\\.py)|ipython\\s+\\S+|pytest|py\\.test|tox|nox|uv\\s+run|poetry\\s+run|pipenv\\s+run|conda\\s+run|pixi\\s+run|Rscript|R\\s+(-f|--file|-e|CMD)|quarto\\s+(render|preview)|jupyter\\s+nbconvert|papermill|snakemake|dvc\\s+repro|make|gmake|cmake|ninja|cargo\\s+(build|run|test|check)|go\\s+(build|run|test)|npm\\s+(run\\s+\\S+|test)|tsc|gcc|g\\+\\+|clang|javac|mvnw?|gradlew?|dotnet\\s+(build|run|test))(\\s|$|[;&|)])",
+          "description": "Regular expression (case-insensitive) deciding which finished terminal commands and tasks count as running your code. Build and test group tasks always count."
+        },
+        "beaverDam.celebrate": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "script",
+              "notebook",
+              "console",
+              "terminal",
+              "tasks"
+            ]
+          },
+          "default": [
+            "script",
+            "notebook",
+            "terminal",
+            "tasks"
+          ],
+          "description": "Which kinds of finished runs make the beaver cheer: scripts run in the Positron console (Run File / Source), notebook cells, every console line, terminal commands, and tasks."
+        },
+        "beaverDam.reactToFailedRuns": {
+          "type": "boolean",
+          "default": true,
+          "description": "The beaver says 'oops :(' when a run ends in an error."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "node --check extension.js && node --check media/main.js",
+    "test": "node test/smoke.js",
+    "package": "vsce package",
+    "publish:marketplace": "vsce publish",
+    "publish:openvsx": "ovsx publish"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.0.0",
+    "jsdom": "^25.0.0",
+    "ovsx": "^0.10.0"
+  }
+}

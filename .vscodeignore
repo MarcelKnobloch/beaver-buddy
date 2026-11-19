@@ -1,0 +1,12 @@
+.vscode/**
+.github/**
+images/screenshots/**
+docs/**
+test/**
+node_modules/**
+*.vsix
+CONTRIBUTING.md
+PUBLISHING.md
+package-lock.json
+.gitignore
+.editorconfig
